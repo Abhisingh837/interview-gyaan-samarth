@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Users, BookOpen, Trophy, Sparkles } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowRight, Users, BookOpen, Trophy, Sparkles, Search, MessageCircle } from "lucide-react";
 
 export const HeroSection = () => {
   const stats = [
@@ -26,28 +28,68 @@ export const HeroSection = () => {
           </Badge>
 
           {/* Main Heading */}
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground animate-fade-in">
-              Crack Your{" "}
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-foreground animate-fade-in tracking-tight">
               <span className="bg-gradient-hero bg-clip-text text-transparent">
-                Dream Job
+                INTERVIEWWALA
               </span>
-              <br />
-              Interview
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in">
+            
+            {/* Taglines */}
+            <div className="space-y-3 animate-fade-in">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
+                Sawaal Ho Koi Bhi, Jawaab Hai Interviewwala!
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground italic">
+                "Any Question, Interviewwala Has The Answer!"
+              </p>
+            </div>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
               Master interview skills with our comprehensive question bank, 
               AI-powered practice sessions, and expert guidance. Available in Hindi & English.
             </p>
           </div>
 
+          {/* Search Section */}
+          <div className="max-w-3xl mx-auto space-y-4 animate-fade-in">
+            <div className="flex flex-col md:flex-row gap-3 p-2 bg-background/80 backdrop-blur rounded-2xl border shadow-lg">
+              <Select>
+                <SelectTrigger className="md:w-48 border-0 bg-transparent">
+                  <SelectValue placeholder="Select Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="government">Government Exams</SelectItem>
+                  <SelectItem value="corporate">Corporate MNCs</SelectItem>
+                  <SelectItem value="engineering">Engineering</SelectItem>
+                  <SelectItem value="law">Law</SelectItem>
+                  <SelectItem value="medicine">Medicine</SelectItem>
+                  <SelectItem value="teaching">Teaching</SelectItem>
+                </SelectContent>
+              </Select>
+              
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input 
+                  placeholder="Search interview questions, companies, or topics..." 
+                  className="pl-10 border-0 bg-transparent text-base"
+                />
+              </div>
+              
+              <Button variant="hero" size="lg" className="px-6">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Ask AI
+              </Button>
+            </div>
+          </div>
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Button size="lg" variant="hero" className="px-8 py-4 text-lg">
-              Start Practicing Now
-              <ArrowRight className="ml-2 w-5 h-5" />
+            <Button size="lg" variant="hero" className="px-12 py-6 text-xl font-semibold">
+              Find My Interview
+              <ArrowRight className="ml-2 w-6 h-6" />
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+            <Button size="lg" variant="outline" className="px-12 py-6 text-xl">
               Browse Categories
             </Button>
           </div>
